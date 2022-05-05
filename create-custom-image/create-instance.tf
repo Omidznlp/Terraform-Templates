@@ -58,15 +58,16 @@ resource "aws_instance" "project-iac" {
   }
 
   depends_on = [ aws_security_group.project-iac-sg ]
+
   provisioner "file" {
       source = "httpdinstalltf.sh"
-      destination = "~/httpdinstalltf.sh"
+      destination = "/tmp/httpdinstalltf.sh"
     }
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x ~/httpdinstalltf.sh",
-      "sudo ~/httpdinstalltf.sh",
+      "sudo chmod +x /tmp/httpdinstalltf.sh",
+      "sudo /tmp/httpdinstalltf.sh",
     ]
   }
 

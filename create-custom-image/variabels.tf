@@ -26,5 +26,5 @@ variable "PUBLICKEY_PATH_HOST" {
 }
 
 variable "INSTANCE_USERNAME" {
-  default = "centos"
+  default = "ec2-user"
 }
